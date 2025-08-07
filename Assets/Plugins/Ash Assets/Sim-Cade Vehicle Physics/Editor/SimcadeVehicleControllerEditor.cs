@@ -1,5 +1,4 @@
 using Ashsvp;
-
 using UnityEditor;
 using UnityEngine;
 
@@ -9,7 +8,9 @@ public class SimcadeVehicleControllerEditor : Editor
     private const string DiscordUrl = "https://discord.com/invite/zD6AhYcYdG";
     private const string TutorilUrl = "https://youtu.be/XCCPcvEU7Qc";
     private const string DocumentationUrl = "/Ash Assets/Sim-Cade Vehicle Physics/Documentation/Documentation.pdf";
-    private const string RateUrl = "https://assetstore.unity.com/packages/tools/physics/sim-cade-vehicle-physics-243624#reviews";
+
+    private const string RateUrl =
+        "https://assetstore.unity.com/packages/tools/physics/sim-cade-vehicle-physics-243624#reviews";
 
     private Texture2D headerBackground;
 
@@ -30,10 +31,10 @@ public class SimcadeVehicleControllerEditor : Editor
     public override void OnInspectorGUI()
     {
         // Define the colors
-        Color primaryColor = new Color(0, 1f, 0); // Green
+        var primaryColor = new Color(0, 1f, 0); // Green
 
         // Create a header for the script with white background
-        GUIStyle headerStyle = new GUIStyle(EditorStyles.boldLabel);
+        var headerStyle = new GUIStyle(EditorStyles.boldLabel);
         headerStyle.fontSize = 27;
         headerStyle.alignment = TextAnchor.MiddleCenter;
         headerStyle.normal.textColor = primaryColor;
@@ -44,7 +45,7 @@ public class SimcadeVehicleControllerEditor : Editor
         GUILayout.Space(10f);
 
         // Create the buttons
-        GUIStyle buttonStyle = new GUIStyle(GUI.skin.button);
+        var buttonStyle = new GUIStyle(GUI.skin.button);
         buttonStyle.normal.textColor = Color.white;
         buttonStyle.fontSize = 12;
         buttonStyle.alignment = TextAnchor.MiddleCenter;
@@ -52,26 +53,22 @@ public class SimcadeVehicleControllerEditor : Editor
 
 
         GUILayout.BeginHorizontal();
-        if (GUILayout.Button(new GUIContent("Join Discord", null, "Join the Discord community"), buttonStyle, GUILayout.Height(20f), GUILayout.ExpandWidth(true)))
+        if (GUILayout.Button(new GUIContent("Join Discord", null, "Join the Discord community"), buttonStyle,
+                GUILayout.Height(20f), GUILayout.ExpandWidth(true))) Application.OpenURL(DiscordUrl);
+        if (GUILayout.Button(new GUIContent("Tutorial", null, "Watch videos on YouTube"), buttonStyle,
+                GUILayout.Height(20f), GUILayout.ExpandWidth(true))) Application.OpenURL(TutorilUrl);
+        if (GUILayout.Button(new GUIContent("Documentation", null, "Read the documentation"), buttonStyle,
+                GUILayout.Height(20f), GUILayout.ExpandWidth(true)))
         {
-            Application.OpenURL(DiscordUrl);
-        }
-        if (GUILayout.Button(new GUIContent("Tutorial", null, "Watch videos on YouTube"), buttonStyle, GUILayout.Height(20f), GUILayout.ExpandWidth(true)))
-        {
-            Application.OpenURL(TutorilUrl);
-        }
-        if (GUILayout.Button(new GUIContent("Documentation", null, "Read the documentation"), buttonStyle, GUILayout.Height(20f), GUILayout.ExpandWidth(true)))
-        {
-            string doc_path = Application.dataPath + DocumentationUrl;
+            var doc_path = Application.dataPath + DocumentationUrl;
             Application.OpenURL("file://" + doc_path);
         }
+
         GUILayout.EndHorizontal();
 
         GUILayout.BeginHorizontal();
-        if (GUILayout.Button(new GUIContent("Rate the Asset", null, "Rate this asset on the Unity Asset Store"), buttonStyle, GUILayout.Height(20f), GUILayout.ExpandWidth(true)))
-        {
-            Application.OpenURL(RateUrl);
-        }
+        if (GUILayout.Button(new GUIContent("Rate the Asset", null, "Rate this asset on the Unity Asset Store"),
+                buttonStyle, GUILayout.Height(20f), GUILayout.ExpandWidth(true))) Application.OpenURL(RateUrl);
         GUILayout.EndHorizontal();
 
         GUILayout.Space(10f);

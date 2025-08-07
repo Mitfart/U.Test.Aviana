@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &637923787300163558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8112101646389215117}
+  - component: {fileID: 1609307920538577907}
+  - component: {fileID: 7786479486826883307}
+  - component: {fileID: 8131942367661061122}
+  m_Layer: 0
+  m_Name: Bootstrap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8112101646389215117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637923787300163558}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1609307920538577907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637923787300163558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56d7c3d044fd4d469ddb6cc196790a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mediator: {fileID: 7786479486826883307}
+--- !u!114 &7786479486826883307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637923787300163558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bca6bde8831478dbf02bada8984f42b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tickService: {fileID: 8131942367661061122}
+  loadingCurtain: {fileID: 0}
+  pathRecorder: {fileID: 0}
+  uiMainMenuAsset: {fileID: 0}
+  roundViewUIAsset: {fileID: 0}
+  raceCountdownUIAsset: {fileID: 4480697902342423987, guid: 78dabcf39ac3e044a8fb4defdd436c9e, type: 3}
+  endGameMenuAsset: {fileID: 0}
+  raceCountdownDuration: 3
+  mapAsset: {fileID: 1059964493851654344, guid: a73a60bdb7aa25d4e9023f0699b7b3d3, type: 3}
+  playerAsset: {fileID: 0}
+  ghostAsset: {fileID: 0}
+  autoPlay: 0
+--- !u!114 &8131942367661061122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 637923787300163558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40cb35c921704ec8a51c284c27c2d8f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

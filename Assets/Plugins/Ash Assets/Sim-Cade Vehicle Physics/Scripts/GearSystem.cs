@@ -7,58 +7,23 @@ namespace Ashsvp
     {
         public float carSpeed;
         public int currentGear;
-        private SimcadeVehicleController vehicleController;
-        public int[] gearSpeeds = new int[] { 40, 80, 120, 160, 220 };
+        public int[] gearSpeeds = { 40, 80, 120, 160, 220 };
 
         public AudioSystem AudioSystem;
 
         private int currentGearTemp;
-        void Start()
-        {
-            vehicleController = GetComponent<SimcadeVehicleController>();
-            currentGear = 1;
-
-        }
-
-        void Update()
-        {
-            carSpeed = Mathf.RoundToInt(vehicleController.localVehicleVelocity.magnitude * 3.6f); //car speed in Km/hr
-
-            gearShift();
-
-
-        }
-
-
-        void gearShift()
-        {
-            for (int i = 0; i < gearSpeeds.Length; i++)
-            {
-                if (carSpeed > gearSpeeds[i])
-                {
-                    currentGear = i + 1;
-                }
-                else break;
-            }
-            if (CurrntGearProperty != currentGear)
-            {
-                CurrntGearProperty = currentGear;
-            }
-
-        }
+        private SimcadeVehicleController vehicleController;
 
         public int CurrntGearProperty
         {
-            get
-            {
-                return currentGearTemp;
-            }
+            get => currentGearTemp;
 
             set
             {
                 currentGearTemp = value;
 
-                if (vehicleController.accelerationInput > 0 && vehicleController.localVehicleVelocity.z > 0 && !AudioSystem.GearSound.isPlaying && vehicleController.vehicleIsGrounded)
+                if (vehicleController.accelerationInput > 0 && vehicleController.localVehicleVelocity.z > 0 &&
+                    !AudioSystem.GearSound.isPlaying && vehicleController.vehicleIsGrounded)
                 {
                     vehicleController.VehicleEvents.OnGearChange.Invoke();
                     AudioSystem.GearSound.Play();
@@ -69,12 +34,34 @@ namespace Ashsvp
             }
         }
 
-        IEnumerator shiftingGear()
+        private void Start()
+        {
+            vehicleController = GetComponent<SimcadeVehicleController>();
+            currentGear = 1;
+        }
+
+        private void Update()
+        {
+            carSpeed = Mathf.RoundToInt(vehicleController.localVehicleVelocity.magnitude * 3.6f); //car speed in Km/hr
+
+            gearShift();
+        }
+
+
+        private void gearShift()
+        {
+            for (var i = 0; i < gearSpeeds.Length; i++)
+                if (carSpeed > gearSpeeds[i])
+                    currentGear = i + 1;
+                else break;
+            if (CurrntGearProperty != currentGear) CurrntGearProperty = currentGear;
+        }
+
+        private IEnumerator shiftingGear()
         {
             vehicleController.CanAccelerate = false;
             yield return new WaitForSeconds(0.3f);
             vehicleController.CanAccelerate = true;
         }
-
     }
 }
